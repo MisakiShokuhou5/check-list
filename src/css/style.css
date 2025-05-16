@@ -1,0 +1,492 @@
+/* style.css - Amplified Blueviolet & Blacks Theme */
+:root {
+    /* Color Palette: Blueviolet & Blacks */
+    --bg-color-deep: #08050F; /* Deepest black with a hint of violet */
+    --bg-color-main: #100C1A; /* Main background, dark violet-black */
+    --surface-color-01: #1A142D; /* Slightly lighter surface for cards */
+    --surface-color-02: #261E40; /* Interactive surfaces, hover states */
+    --primary-accent: #8A2BE2; /* Blueviolet */
+    --primary-accent-rgb: 138, 43, 226; /* RGB for Blueviolet */
+    --secondary-accent: #FF00FF; /* Magenta - for strong highlights */
+    --secondary-accent-rgb: 255, 0, 255; /* RGB for Magenta */
+    --glow-color: rgba(var(--primary-accent-rgb), 0.7);
+    --glow-color-secondary: rgba(var(--secondary-accent-rgb), 0.6);
+
+    --text-color-light: #EAE6FF; /* Light, slightly violet-tinted white */
+    --text-color-medium: #A098C0; /* Muted, for less emphasis */
+    --text-color-headings: #C5BFFF; /* For prominent headings */
+    --text-on-accent: #FFFFFF; /* Text on primary/secondary accent backgrounds */
+
+    --border-color-soft: #302850; /* Soft borders */
+    --border-color-strong: #504870; /* Stronger, more visible borders */
+    --border-highlight: var(--primary-accent);
+
+    --success-color: #00FF7F; /* Spring Green - for progress */
+    --success-color-rgb: 0, 255, 127;
+    --danger-color: var(--secondary-accent); /* Using magenta for danger buttons */
+
+    /* Typography & Spacing */
+    --font-primary: 'Roboto', sans-serif;
+    --font-display: 'Orbitron', sans-serif; /* Techy font for titles */
+
+    --border-radius-sm: 5px;
+    --border-radius-md: 10px;
+    --border-radius-lg: 15px;
+    --spacing-xs: 0.25rem; /* 4px */
+    --spacing-sm: 0.5rem;  /* 8px */
+    --spacing-md: 1rem;    /* 16px */
+    --spacing-lg: 1.5rem;  /* 24px */
+    --spacing-xl: 2rem;    /* 32px */
+
+    /* Shadows & Effects */
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.3);
+    --shadow-md: 0 5px 15px rgba(0,0,0,0.4);
+    --shadow-lg: 0 8px 25px rgba(var(--primary-accent-rgb), 0.2); /* Subtle color shadow */
+    --text-shadow-glow: 0 0 8px rgba(var(--primary-accent-rgb), 0.5);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-accent) var(--surface-color-01);
+}
+
+/* Custom Scrollbar for Webkit browsers */
+*::-webkit-scrollbar {
+    width: 10px;
+}
+*::-webkit-scrollbar-track {
+    background: var(--surface-color-01);
+    border-radius: var(--border-radius-sm);
+}
+*::-webkit-scrollbar-thumb {
+    background-color: var(--primary-accent);
+    border-radius: var(--border-radius-md);
+    border: 2px solid var(--surface-color-01);
+}
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--secondary-accent);
+}
+
+
+body {
+    font-family: var(--font-primary);
+    background: linear-gradient(135deg, var(--bg-color-deep), var(--bg-color-main));
+    color: var(--text-color-light);
+    line-height: 1.7;
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scroll from potential glows */
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1100px; /* Increased max-width */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.app-header {
+    background: rgba(var(--surface-color-01-rgb, 26, 20, 45), 0.8); /* Surface with transparency */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color-soft);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    position: relative; /* For potential pseudo-elements */
+}
+/* Adding RGB vars for rgba() */
+:root {
+    --surface-color-01-rgb: 26, 20, 45; /* For #1A142D */
+}
+
+
+.app-header h1 {
+    font-family: var(--font-display);
+    color: var(--primary-accent);
+    text-shadow: var(--text-shadow-glow);
+    margin-bottom: var(--spacing-lg);
+    font-size: 3rem; /* Larger title */
+    letter-spacing: 1px;
+}
+
+.overall-progress-container h2 {
+    font-family: var(--font-display);
+    font-size: 1.5rem; /* Larger subtitle */
+    margin-bottom: var(--spacing-md);
+    color: var(--text-color-headings);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.progress-bar-wrapper {
+    background-color: var(--surface-color-01); /* Darker background for progress bar */
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-xs);
+    height: 35px; /* Slightly taller */
+    overflow: hidden;
+    border: 1px solid var(--border-color-soft);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5); /* Inner shadow for depth */
+}
+
+.progress-bar-animated {
+    background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent)); /* Gradient progress */
+    width: 0%;
+    height: 100%;
+    border-radius: var(--border-radius-sm); /* Slightly less than wrapper */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-on-accent);
+    font-weight: bold;
+    font-size: 1rem;
+    white-space: nowrap;
+    transition: width 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* More dynamic transition */
+    position: relative;
+    box-shadow: 0 0 10px var(--glow-color), 0 0 5px var(--glow-color-secondary) inset; /* Glow effect */
+}
+.progress-bar-animated span { /* For the text percentage inside */
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+
+.checklist-main {
+    display: grid;
+    gap: var(--spacing-xl); /* Increased gap */
+}
+
+.loading-placeholder {
+    font-family: var(--font-display);
+    text-align: center;
+    font-size: 1.5rem;
+    padding: var(--spacing-xl) 0;
+    color: var(--text-color-medium);
+    text-transform: uppercase;
+}
+
+.series-card {
+    background-color: var(--surface-color-01);
+    border: 1px solid var(--border-color-soft);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.series-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg); /* Enhanced shadow on hover */
+    border-color: var(--border-highlight);
+}
+
+.series-header {
+    background: linear-gradient(145deg, var(--primary-accent), var(--surface-color-02)); /* Gradient header */
+    padding: var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color-strong);
+    position: relative;
+}
+.series-header::before { /* Decorative accent line */
+    content: '';
+    position: absolute;
+    bottom: -1px; /* Cover the border */
+    left: 0;
+    width: 30%;
+    height: 2px;
+    background: var(--secondary-accent);
+    box-shadow: 0 0 8px var(--secondary-accent);
+}
+
+
+.series-header h3 {
+    color: var(--text-on-accent);
+    font-family: var(--font-display);
+    font-size: 1.8rem; /* Larger series titles */
+    flex-grow: 1;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.series-progress-container {
+    min-width: 200px; /* More space for progress text */
+    text-align: right;
+}
+.series-progress-container .progress-bar-wrapper {
+    height: 25px; /* Adjusted height */
+    margin-top: var(--spacing-sm);
+    background-color: rgba(0,0,0,0.3); /* Darker bg for series progress wrapper */
+}
+.series-progress-container .progress-bar-animated {
+    background: var(--success-color); /* Clear success color for series, distinct from overall */
+    box-shadow: 0 0 8px rgba(var(--success-color-rgb),0.5);
+    font-size: 0.9rem;
+}
+.series-progress-container .progress-text {
+    font-size: 0.9rem;
+    color: var(--text-color-medium);
+    font-weight: 500;
+}
+
+
+.series-content {
+    padding: var(--spacing-md) var(--spacing-lg); /* More padding */
+}
+
+.arc-group summary {
+    background-color: var(--surface-color-02);
+    padding: var(--spacing-md);
+    cursor: pointer;
+    font-weight: 700; /* Bolder summary */
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--text-color-headings);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-md);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, letter-spacing 0.3s ease;
+    border: 1px solid var(--border-color-soft);
+}
+.arc-group summary:hover {
+    background-color: var(--primary-accent);
+    color: var(--text-on-accent);
+    letter-spacing: 0.5px;
+    border-color: var(--primary-accent);
+}
+
+.arc-group summary::before { /* Custom styled icon */
+    content: '+';
+    font-family: var(--font-display);
+    margin-right: var(--spacing-md);
+    font-size: 1.2em;
+    line-height: 1;
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    display: inline-block;
+    background: rgba(0,0,0,0.2);
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    border-radius: 50%;
+}
+.arc-group[open] summary::before {
+    transform: rotate(225deg); /* Rotate to form an 'x' or similar */
+    content: '-'; /* Change content when open for clarity */
+}
+.arc-group[open] summary {
+    background-color: var(--primary-accent); /* Keep active color when open */
+    color: var(--text-on-accent);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.arc-list {
+    padding-left: var(--spacing-sm); /* Reduced left padding for list */
+    margin-left: var(--spacing-md); /* Aligned with summary */
+    border-left: 3px solid var(--primary-accent); /* Thicker, colored border */
+    margin-bottom: var(--spacing-md); /* Space after list */
+    background: rgba(var(--surface-color-01-rgb), 0.5); /* Subtle background for list */
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md); /* Rounded bottom corners if group is open */
+    padding-top: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
+}
+
+.arc-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-sm); /* More padding */
+    border-bottom: 1px solid var(--border-color-soft);
+    transition: background-color 0.2s ease, border-left-color 0.2s ease;
+    position: relative; /* For pseudo-elements */
+    margin: 0 var(--spacing-sm); /* Margin inside the arc-list padding */
+}
+.arc-item:last-child {
+    border-bottom: none;
+}
+.arc-item:hover {
+    background-color: var(--surface-color-02);
+    border-left: 3px solid var(--secondary-accent); /* Highlight hover with border */
+    margin-left: -3px; /* Compensate for border width to keep text aligned */
+    padding-left: calc(var(--spacing-sm) + 3px);
+}
+.arc-item:hover label {
+    color: var(--secondary-accent); /* Highlight label text on hover */
+}
+
+
+.arc-item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent; /* Transparent background initially */
+    border: 2px solid var(--primary-accent);
+    width: 22px; /* Larger checkbox */
+    height: 22px;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    margin-right: var(--spacing-md);
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px rgba(var(--primary-accent-rgb), 0.3) inset;
+}
+.arc-item input[type="checkbox"]:hover {
+    border-color: var(--secondary-accent);
+    box-shadow: 0 0 8px rgba(var(--secondary-accent-rgb), 0.5) inset, 0 0 5px var(--secondary-accent);
+}
+
+.arc-item input[type="checkbox"]:checked {
+    background-color: var(--primary-accent);
+    border-color: var(--primary-accent);
+    transform: scale(1.1); /* Slight scale on check */
+    box-shadow: 0 0 10px var(--glow-color);
+}
+
+.arc-item input[type="checkbox"]:checked::after { /* Custom checkmark */
+    content: '';
+    display: block;
+    width: 6px;
+    height: 12px;
+    border: solid var(--text-on-accent);
+    border-width: 0 3px 3px 0;
+    transform: translate(50%, 20%) rotate(45deg); /* Position checkmark */
+    position: absolute; /* Relative to checkbox */
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.arc-item label {
+    cursor: pointer;
+    flex-grow: 1;
+    color: var(--text-color-light);
+    font-size: 1.05rem; /* Slightly larger arc text */
+    transition: color 0.3s ease;
+}
+.arc-item input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    text-decoration-color: var(--secondary-accent);
+    text-decoration-thickness: 2px;
+    color: var(--text-color-medium);
+    font-style: italic;
+}
+
+
+.app-footer {
+    text-align: center;
+    padding: var(--spacing-lg); /* More padding */
+    color: var(--text-color-medium);
+    background: rgba(var(--surface-color-01-rgb), 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--border-color-soft);
+    box-shadow: var(--shadow-md);
+    margin-top: var(--spacing-lg);
+}
+.app-footer p {
+    font-family: var(--font-display);
+    margin-bottom: var(--spacing-md);
+    font-size: 0.9rem;
+}
+
+.app-footer button {
+    padding: var(--spacing-md) var(--spacing-lg); /* Larger button */
+    font-family: var(--font-display); /* Tech font for button */
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    border: 2px solid transparent; /* Prepare for border transition */
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-sm);
+}
+.app-footer button:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: none;
+}
+
+.button-danger {
+    background-color: var(--danger-color);
+    color: var(--text-on-accent);
+    border-color: var(--danger-color);
+}
+.button-danger:hover {
+    background-color: transparent;
+    color: var(--danger-color);
+    border-color: var(--danger-color);
+    box-shadow: 0 0 15px var(--glow-color-secondary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) { /* Adjusted breakpoint */
+    .app-header h1 {
+        font-size: 2.2rem;
+    }
+    .series-header h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-header h1 {
+        font-size: 2rem;
+    }
+    .series-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+    .series-header h3 {
+        font-size: 1.6rem; /* Maintain emphasis */
+    }
+    .series-progress-container {
+        width: 100%;
+        text-align: left;
+        min-width: auto;
+    }
+    .arc-item input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+    }
+    .arc-item input[type="checkbox"]:checked::after {
+        width: 5px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: var(--spacing-sm);
+    }
+    .app-header {
+        padding: var(--spacing-md);
+    }
+    .app-header h1 {
+        font-size: 1.6rem;
+    }
+    .overall-progress-container h2 {
+        font-size: 1.2rem;
+    }
+    .series-header h3 {
+        font-size: 1.3rem;
+    }
+    .arc-item label {
+        font-size: 0.95rem;
+    }
+    .app-footer button {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.9rem;
+    }
+}
