@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toaru Series Checklist Avançado</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Orbitron:wght@500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./src/css/style.css">
 </head>
+
 <body>
     <div class="app-container">
         <header class="app-header">
@@ -27,12 +31,22 @@
             <div class="loading-placeholder">Carregando checklist...</div>
         </main>
 
-        <footer class="app-footer">
-            <p>Toaru Series Checklist v2.0</p>
-            <button id="reset-progress-button" class="button-danger">Resetar Progresso</button>
+        <footer>
+            <button id="reset-progress-button">Resetar Progresso</button>
+            <button id="translate-button"></button>
+            <div class="overall-progress">
+                <span>Progresso Geral:</span>
+                <div class="progress-bar-wrapper">
+                    <div id="overall-progress-bar">
+                        <span id="overall-progress-value">0%</span>
+                    </div>
+                </div>
+                <div id="overall-progress-text" class="progress-text">(0 / 0 arcos)</div>
+            </div>
         </footer>
     </div>
 
     <script src="./src/index.js"></script>
 </body>
+
 </html>

@@ -490,3 +490,109 @@ body {
         font-size: 0.9rem;
     }
 }
+
+/* Estilo base para todos os botões no rodapé */
+footer button {
+    padding: 10px 15px; /* Espaçamento interno */
+    margin: 0 10px; /* Espaçamento entre os botões */
+    border: 1px solid #ccc; /* Borda cinza clara */
+    border-radius: 5px; /* Cantos arredondados */
+    background-color: #f0f0f0; /* Fundo cinza claro */
+    color: #333; /* Cor do texto */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    font-size: 1rem; /* Tamanho da fonte */
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transição suave ao passar o mouse */
+}
+
+/* Estilo ao passar o mouse sobre os botões */
+footer button:hover {
+    background-color: #e0e0e0; /* Fundo um pouco mais escuro */
+    border-color: #bbb; /* Borda um pouco mais escura */
+}
+
+/* Estilo ao clicar/ativar os botões */
+footer button:active {
+    background-color: #ccc; /* Fundo mais escuro */
+    border-color: #aaa; /* Borda mais escura */
+}
+
+/* Estilo específico para o botão de Reset (opcional, para dar um destaque de perigo) */
+#reset-progress-button {
+    color: #d9534f; /* Cor do texto vermelha */
+    border-color: #d43f3a; /* Borda vermelha */
+    background-color: #f2dede; /* Fundo vermelho claro */
+}
+
+#reset-progress-button:hover {
+    background-color: #ebcccc;
+    border-color: #d43f3a;
+}
+
+#reset-progress-button:active {
+     background-color: #e5baba;
+     border-color: #d43f3a;
+}
+
+/* Estilo específico para o botão de Tradução (opcional) */
+#translate-button {
+     /* Pode adicionar estilos diferentes aqui se quiser, por exemplo: */
+     background-color: var(--primary-accent);
+     color: white;
+     border-color: var(--primary-accent);
+}
+
+/* Exemplo de como estilar a área do progresso geral */
+.overall-progress {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #261E40;
+}
+
+.overall-progress span {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.overall-progress .progress-bar-wrapper {
+    width: 80%; /* Largura da barra de progresso */
+    height: 20px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.overall-progress #overall-progress-bar {
+    height: 100%;
+    width: 0%; /* Largura inicial definida pelo JS */
+    background-color: #28a745; /* Cor verde */
+    text-align: center;
+    color: white;
+    line-height: 20px; /* Centraliza o texto verticalmente */
+    font-size: 0.9rem;
+     transition: width 0.5s ease-in-out; /* JS adiciona/remove isso, mas bom ter no CSS */
+}
+
+#overall-progress-bar span {
+    color: #261E40; /* Garante que o texto dentro da barra seja branco */
+    font-weight: normal;
+    margin: 0; /* Remove margem extra do span */
+}
+
+
+.overall-progress .progress-text {
+    font-size: 0.9rem;
+    color: #261E40;
+    margin-top: 5px;
+}
+
+
+/* Adicione ou ajuste estilos para a área do rodapé se necessário */
+footer {
+    text-align: center; /* Centraliza o conteúdo do rodapé */
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #08050F;
+    border-top: 1px solid #e9ecef;
+}
